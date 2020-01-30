@@ -6,27 +6,29 @@ namespace FlyingBirdSimulator
     class Program
     {
         static Subject subject;
+
+
         static void Main(string[] args)
         {
+            FlySimulating flySimulating = new FlySimulating();
             subject = new Crow("Jimmothy");
-            Thread a = new Thread(FlyingSimulator);
-            subject.Start();
-            a.Start();
 
-            while (true)
-                Console.WriteLine(subject.Name + " Traveled " + (int)subject.Distance + "m");
+            flySimulating.StartSimulation(subject);
+            flySimulating.dataAvaible += SimulatingInfo;
+            
 
+            Console.ReadKey();
+            flySimulating.StopSimulating = true;
+
+            Console.ReadLine();
         }
 
-        static void FlyingSimulator()
+        private static void SimulatingInfo(object sender, EventArgs e)
         {
-            while (true)
-            {
-                if (subject is IFly)
-                {
-                    ((IFly)subject).Fly();
-                }
-            }
+            Subject sub = (Subject)sender;
+
+            Console.WriteLine(sub.Name + " Traveled " + (int)sub.Distance + "meters");
         }
+
     }
 }
