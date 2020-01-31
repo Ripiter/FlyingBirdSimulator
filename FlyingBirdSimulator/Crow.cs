@@ -10,7 +10,7 @@ namespace FlyingBirdSimulator
     {
         public Crow(string name) : base(name)
         {
-            this.Speed = 3f;
+            this.Speed = 3.6f;
         }
 
         public override void Start()
