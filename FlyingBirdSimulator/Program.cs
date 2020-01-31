@@ -32,6 +32,7 @@ namespace FlyingBirdSimulator
             Subject sub = (Subject)sender;
 
             Console.WriteLine(sub.Name + " Traveled " + (int)sub.Distance + "meters");
+            Thread.Sleep(250);
         }
 
     }
