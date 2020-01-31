@@ -13,11 +13,15 @@ namespace FlyingBirdSimulator
             FlySimulating flySimulating = new FlySimulating();
             subject = new Crow("Jimmothy");
 
+            // Set refresh rate Deafult 250 (in miliseconds)
+            // flySimulating.DataRefreshRate
+
             flySimulating.StartSimulation(subject);
             flySimulating.dataAvaible += SimulatingInfo;
             
 
             Console.ReadKey();
+            Console.WriteLine("Simulating stopped");
             flySimulating.StopSimulating = true;
 
             Console.ReadLine();

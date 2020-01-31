@@ -7,8 +7,11 @@ namespace FlyingBirdSimulator
     {
         Subject subject;
         bool stopSimulating = false;
+        int dataRefreshRate = 250;
         public event EventHandler dataAvaible;
+
         public bool StopSimulating { get => stopSimulating; set => stopSimulating = value; }
+        public int DataRefreshRate { get => dataRefreshRate; set => dataRefreshRate = value; }
 
         public void StartSimulation(Subject subject)
         {
@@ -28,7 +31,7 @@ namespace FlyingBirdSimulator
                 if (dataAvaible != null)
                     dataAvaible(subject, new EventArgs());
 
-                Thread.Sleep(250);
+                Thread.Sleep(DataRefreshRate);
             }
         }
     }
